@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test D491 | Jessica's Master Trainer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <section class="hero glass">
+      <div class="hero-copy">
+        <div class="eyebrow">🌸 Jessica's Master Trainer</div>
+        <h1>Test D491</h1>
+        <p>Business English scenarios, hidden keywords, real examples, match cards, repeat misses, and girly pastel study vibes.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span id="score">0</span><small>Score</small></div>
+        <div class="stat"><span id="streak">0</span><small>Streak</small></div>
+        <div class="stat"><span id="missCount">0</span><small>Misses</small></div>
+      </div>
+    </section>
+
+    <nav class="toolbar glass">
+      <div class="tabs">
+        <button class="tab active" data-mode="quiz">🧠 Quiz</button>
+        <button class="tab" data-mode="match">🎴 Match Cards</button>
+        <button class="tab" data-mode="misses">🔁 Repeat Misses</button>
+        <button class="tab" data-mode="review">📚 Review</button>
+        <button class="tab" data-mode="keywords">🔎 Hidden Keywords</button>
+      </div>
+      <div class="tools">
+        <select id="category"></select>
+        <button class="soft" id="newRound">🔀 New Round</button>
+        <button class="soft" id="clearMisses">🧼 Clear Misses</button>
+      </div>
+    </nav>
+
+    <main id="quizMode" class="panel glass">
+      <div class="topline">
+        <h2>🧠 WGU-Style Quiz</h2>
+        <div class="progress"><div id="quizProgress"></div></div>
+        <span class="pill" id="quizCounter">1 / 72</span>
+      </div>
+      <section class="grid">
+        <article class="card-xl">
+          <span class="tag" id="qCat">Category</span>
+          <h3 id="qText"></h3>
+          <p class="hint-box">Ask: what is the company trying to do? Find the hidden keyword.</p>
+        </article>
+        <article class="card-xl">
+          <div id="choices"></div>
+          <div class="feedback" id="quizFeedback"></div>
+          <div class="actions">
+            <button class="soft" id="prevQ">← Back</button>
+            <button class="soft" id="hintQ">💡 Hint</button>
+            <button id="nextQ">Next →</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <main id="matchMode" class="panel glass hidden">
+      <div class="topline">
+        <h2>🎴 Match Scenario → Answer</h2>
+        <div class="progress"><div id="matchProgress"></div></div>
+        <span class="pill" id="matchCounter">0 / 10</span>
+      </div>
+      <section class="match-grid">
+        <article class="column"><h3>Scenario</h3><div id="leftCards"></div></article>
+        <article class="column"><h3>Answer</h3><div id="rightCards"></div></article>
+      </section>
+      <div class="feedback" id="matchFeedback"></div>
+      <div class="actions center"><button class="soft" id="matchHint">👀 Hint</button><button id="nextMatch">Next Round →</button></div>
+    </main>
+
+    <main id="missesMode" class="panel glass hidden">
+      <div class="topline"><h2>🔁 Repeat Misses</h2><span class="pill" id="missPill">0 misses</span></div>
+      <section class="grid">
+        <article class="card-xl"><span class="tag">Missed</span><h3 id="missText">No misses yet.</h3></article>
+        <article class="card-xl"><div id="missChoices"></div><div class="feedback" id="missFeedback"></div><div class="actions"><button id="nextMiss">Next Miss →</button></div></article>
+      </section>
+      <div id="missList"></div>
+    </main>
+
+    <main id="reviewMode" class="panel glass hidden">
+      <div class="topline"><h2>📚 All 72 Questions</h2><span class="pill">Study mode</span></div>
+      <div id="reviewList"></div>
+    </main>
+
+    <main id="keywordsMode" class="panel glass hidden">
+      <div class="topline"><h2>🔎 Hidden Keywords</h2><span class="pill">WGU Decoder</span></div>
+      <div id="keywordGrid" class="keyword-grid"></div>
+    </main>
+  </div>
+
+  <div class="celebration" id="celebration">
+    <div class="celebrate-card">
+      <div class="sparkle">🎉</div>
+      <h2>You did it!</h2>
+      <p><strong>It’s me, Jessica!!!</strong> 💜<br>One question at a time. One keyword at a time.</p>
+      <button id="closeCelebration">Keep studying →</button>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
